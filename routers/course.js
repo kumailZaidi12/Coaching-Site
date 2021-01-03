@@ -21,9 +21,11 @@ router.post('/course',async (req,res) => {
 })
 
 router.get('/', async (req,res) =>{
+    
     try{
-        const courses = await Course.find({},{resourceArray:0})
-        res.status(200).send(courses)
+        const courses = await Course.find({},{resourceArray:0,__v:0})
+       // res.render('index',{items:courses})
+       res.render('index',{items:courses})
     } catch(e){
         res.status(400).send()
     }
@@ -32,8 +34,8 @@ router.get('/', async (req,res) =>{
 router.get('/course/:id' ,async (req,res) => {
     try{
         const result = await Course.findById(req.params.id,{resourceArray:1})
-        const resource = await Resource.find({"_id":{"$in":result["resourceArray"]}})
-        res.status(200).send(resource)
+        const resource = await Resource.find({"_id":{"$in":result["resourceArray"]}},{_id:0,__v:0})
+        res.render('learn',{list:resource})
 
     } catch(e){
         res.status(400).send()
