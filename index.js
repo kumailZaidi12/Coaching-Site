@@ -1,4 +1,3 @@
-//Ya Ali Madad
 const path=require('path')
 const express=require('express')
 const hbs=require('hbs')
@@ -27,6 +26,10 @@ app.use(express.static(publicPath))
 app.use(express.json())
 app.use(courseRouter)
 app.use(resourceRouter)
+
+// app.get('/about',(req,res) =>{
+//     res.render('about')
+// })
 
 
 app.listen(port,() =>{
