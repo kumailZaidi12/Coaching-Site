@@ -6,6 +6,7 @@ const router = new express.Router()
 
 router.post('/course',async (req,res) => {
     const course = new Course({
+        avatar:req.body.avatar,
         title:req.body.title,
         description:req.body.description,
         price:req.body.price,

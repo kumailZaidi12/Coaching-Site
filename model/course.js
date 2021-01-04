@@ -2,6 +2,10 @@ const { ObjectID } = require('bson')
 const mongoose = require('mongoose')
 
 const courseSchema = new mongoose.Schema({
+    avatar:{
+        type:String,
+        required:true
+    },
     title:{
         type:String,
         required:true
@@ -11,7 +15,7 @@ const courseSchema = new mongoose.Schema({
         required:true
     },
     price:{
-        type:Number,
+        type:String,
         required:true
     },
     duration:{
