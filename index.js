@@ -4,14 +4,14 @@ const hbs=require('hbs')
 const mongoose = require('mongoose')
 const resourceRouter=require('./routers/resource')
 const courseRouter = require('./routers/course')
-
-mongoose.connect('mongodb://127.0.0.1:27017/coaching-manager-api', {
+const mongo_uri = "mongodb+srv://kumail11:kumail11@clustercab.ubkov.mongodb.net/kumail11?retryWrites=true&w=majority";
+mongoose.connect(mongo_uri, {
  useNewUrlParser: true,
  useCreateIndex: true,
  useUnifiedTopology: true
 })
 
-
+// 'mongodb://127.0.0.1:27017/coaching-manager-api'
 const app=express()
 const port=process.env.PORT || 3000
 
