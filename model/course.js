@@ -1,4 +1,3 @@
-const { ObjectID } = require('bson')
 const mongoose = require('mongoose')
 
 const courseSchema = new mongoose.Schema({
@@ -21,12 +20,7 @@ const courseSchema = new mongoose.Schema({
     duration:{
         type:String,
         required:true
-    },
-    resourceArray:[{
-        type:ObjectID,
-        ref:'Resource'
-    }]
-    
+    }
 })
 
 const Course = mongoose.model('Course',courseSchema)

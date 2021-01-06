@@ -4,7 +4,11 @@ const hbs=require('hbs')
 const mongoose = require('mongoose')
 const resourceRouter=require('./routers/resource')
 const courseRouter = require('./routers/course')
-const mongo_uri = "mongodb+srv://kumail11:kumail11@clustercab.ubkov.mongodb.net/kumail11?retryWrites=true&w=majority";
+const learningRouter = require('./routers/learning')
+
+
+// const mongo_uri = "mongodb+srv://kumail11:kumail11@clustercab.ubkov.mongodb.net/kumail11?retryWrites=true&w=majority";
+const mongo_uri = "mongodb://127.0.0.1:27017/coaching-manager-api";
 mongoose.connect(mongo_uri, {
  useNewUrlParser: true,
  useCreateIndex: true,
@@ -26,6 +30,7 @@ app.use(express.static(publicPath))
 app.use(express.json())
 app.use(courseRouter)
 app.use(resourceRouter)
+app.use(learningRouter)
 
 // app.get('/about',(req,res) =>{
 //     res.render('about')

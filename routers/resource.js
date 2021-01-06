@@ -17,5 +17,14 @@ router.post('/resource',async (req,res) => {
     }
 })
 
+router.get('/resource/all',async (req,res) =>{
+    const resource=  await Resource.find({})
+    try {
+        res.status(200).send(resource)
+    } catch (e) {
+        res.status(400).send()
+    }
+})
+
 
 module.exports=router
